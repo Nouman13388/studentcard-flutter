@@ -41,18 +41,15 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  _cardSide == CardSide.front
-                      ? _buildFrontSide()
-                      : _buildBackSide(),
-                ],
-              ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              children: <Widget>[
+                _cardSide == CardSide.front
+                    ? _buildFrontSide()
+                    : _buildBackSide(),
+              ],
             ),
           ),
         ),
@@ -64,13 +61,30 @@ class _MyAppState extends State<MyApp> {
     return Column(
       children: <Widget>[
         Container(
+          width: 310,
+          height: 245,
           color: Colors.blueGrey[900],
           padding:
-              const EdgeInsets.only(top: 20, bottom: 0, left: 20, right: 20),
-          child: const Image(
-            image: AssetImage('./assets/img.jpg'),
-            width: 250,
-            height: 225,
+              const EdgeInsets.only(top: 20, bottom: 0, left: 10, right: 10),
+          child: const Row(
+            children: [
+              Image(
+                image: AssetImage('./assets/img.jpg'),
+                width: 240,
+                height: 225,
+              ),
+              RotatedBox(
+                quarterTurns: 3,
+                child: Text(
+                  'CIIT/SP22-BSE-103/LHR',
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         _buildTextRow('STUDENT', fontSize: 35, fontWeight: FontWeight.bold),
@@ -95,7 +109,7 @@ class _MyAppState extends State<MyApp> {
         Container(
           color: Colors.blueGrey[900],
           padding: const EdgeInsets.all(17),
-          width: 283,
+          width: 310,
           height: 245,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -119,7 +133,7 @@ class _MyAppState extends State<MyApp> {
         ),
         Center(
           child: _buildTextRow(
-              'This card is\nnon transferable\n\nThis card is property of\nCOMSATS UNIVERSITY ISLAMABAD\nLahore, Campus\n\nIn case of loss report to\nCUI Lahore\nImmediately.\n\nDefence Road\nOff Raiwind Road,\nLahore',
+              '\nThis card is\nnon transferable\n\nThis card is property of\nCOMSATS UNIVERSITY ISLAMABAD\nLahore, Campus\n\nIn case of loss report to\nCUI Lahore\nImmediately.\n\nDefence Road\nOff Raiwind Road,\nLahore',
               fontSize: 10,
               Color: Colors.black),
         ),
